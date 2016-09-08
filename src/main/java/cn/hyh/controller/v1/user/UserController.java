@@ -1,10 +1,9 @@
 package cn.hyh.controller.v1.user;
 
 import cn.hyh.model.User;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 /**
  * @Author : hyh
@@ -13,16 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping(value = "/v1/user")
+@RequestMapping(value = "/v1/users")
 public class UserController {
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public User getUserByName(@PathVariable String name) {
-        User user = new User();
-        user.setId(10000);
-        user.setName(name);
-        user.setAge(30);
-        return user;
+    @RequestMapping(method = RequestMethod.GET)
+    public ArrayList<User> getUser() {
+        return new ArrayList<User>() {{
+            add(new User(10000, "A", 21));
+            add(new User(10001, "B", 22));
+        }};
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public User getUserByName(@PathVariable Integer id) {
+        return new User(id, "HYH", 30);
     }
 }
 
