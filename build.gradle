@@ -1,11 +1,11 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url "http://repo.spring.io/snapshot" }
-        maven { url "http://repo.spring.io/milestone" }
+        maven { url 'http://repo.spring.io/snapshot' }
+        maven { url 'http://repo.spring.io/milestone' }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE')
     }
 }
 
@@ -19,11 +19,15 @@ jar {
 
 repositories {
     jcenter()
-    maven { url "http://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
+    maven { url 'http://repo.spring.io/snapshot' }
+    maven { url 'http://repo.spring.io/milestone' }
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
