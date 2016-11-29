@@ -1,9 +1,9 @@
 package cn.hyh.controller.v1.user;
 
 import cn.hyh.model.User;
+import cn.hyh.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 /**
  * @Author : hyh
@@ -19,24 +19,14 @@ import org.slf4j.LoggerFactory;
 @RequestMapping(value = "/v1/users")
 public class UserController {
 
-    private static Logger log = LoggerFactory.getLogger(UserController.class);
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ArrayList<User> getUser() {
-        log.trace("======trace");
-        log.debug("======debug");
-        log.info("======info");
-        log.warn("======warn");
-        log.error("======error");
-
-        return new ArrayList<User>() {{
-            add(new User(10000, "A", 21));
-            add(new User(10001, "B", 22));
-        }};
-    }
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public User getUserByName(@PathVariable Integer id) {
-        return new User(id, "HYH", 30);
+    public User getUserById(@PathVariable int id) {
+        logger.info("getUserById id = " + id);
+        return userService.getUserById(id);
     }
 }

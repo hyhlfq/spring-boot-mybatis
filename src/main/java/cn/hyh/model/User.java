@@ -11,7 +11,6 @@ public class User {
     private Integer id;
     private String name;
     private Integer age;
-    private Integer test;
 
     public User(Integer id, String name, Integer age) {
         this.id = id;
@@ -41,13 +40,5 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public Integer getTest() {
-        return test;
-    }
-
-    public void setTest(Integer test) {
-        this.test = test;
     }
 }
