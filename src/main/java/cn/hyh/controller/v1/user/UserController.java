@@ -24,6 +24,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelMap getUsers() {
+        logger.info("getUsers");
+        return userService.getUsers();
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelMap getUserById(@PathVariable int id) {
         logger.info("getUserById id = " + id);

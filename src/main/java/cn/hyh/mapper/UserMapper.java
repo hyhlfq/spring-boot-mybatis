@@ -2,6 +2,8 @@ package cn.hyh.mapper;
 
 import cn.hyh.model.User;
 
+import java.util.List;
+
 /**
  * @Author : hyh
  * @Email : hyhlfq@163.com
@@ -10,5 +12,7 @@ import cn.hyh.model.User;
 
 public interface UserMapper {
 
-    User getUserById(int id);
+    User selectUserById(int id);
+
+    List<User> selectUsers();
 }

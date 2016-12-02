@@ -17,11 +17,19 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
+    public ModelMap getUsers() {
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("ret", 0);
+        modelMap.addAttribute("msg", "OK");
+        modelMap.addAttribute("data", userMapper.selectUsers());
+        return modelMap;
+    }
+
     public ModelMap getUserById(int id) {
         ModelMap modelMap = new ModelMap();
         modelMap.addAttribute("ret", 0);
         modelMap.addAttribute("msg", "OK");
-        modelMap.addAttribute("data", userMapper.getUserById(id));
+        modelMap.addAttribute("data", userMapper.selectUserById(id));
         return modelMap;
     }
 }
