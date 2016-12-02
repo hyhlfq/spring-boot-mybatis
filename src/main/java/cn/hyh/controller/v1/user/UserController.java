@@ -48,4 +48,10 @@ public class UserController {
         logger.info("putUser user = " + user.toString());
         return userService.putUser(user);
     }
+
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    public ModelMap deleteUserById(@PathVariable int id) {
+        logger.info("deleteUserById id = " + id);
+        return userService.deleteUserById(id);
+    }
 }

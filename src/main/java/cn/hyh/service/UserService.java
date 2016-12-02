@@ -49,4 +49,12 @@ public class UserService {
         userMapper.updateUserById(user);
         return modelMap;
     }
+
+    public ModelMap deleteUserById(int id) {
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("ret", 0);
+        modelMap.addAttribute("msg", "OK");
+        userMapper.deleteUserById(id);
+        return modelMap;
+    }
 }

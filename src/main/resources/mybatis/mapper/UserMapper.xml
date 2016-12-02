@@ -26,4 +26,10 @@
         WHERE id = #{id}
     </insert>
 
+    <delete id="deleteUserById">
+        DELETE
+        FROM user
+        WHERE id = #{id}
+    </delete>
+
 </mapper>
