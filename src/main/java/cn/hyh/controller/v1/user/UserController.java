@@ -27,10 +27,6 @@ public class UserController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelMap getUserById(@PathVariable int id) {
         logger.info("getUserById id = " + id);
-        ModelMap modelMap = new ModelMap();
-        modelMap.addAttribute("ret", 0);
-        modelMap.addAttribute("msg", "OK");
-        modelMap.addAttribute("data", userService.getUserById(id));
-        return modelMap;
+        return userService.getUserById(id);
     }
 }

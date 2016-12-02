@@ -1,9 +1,9 @@
 package cn.hyh.service;
 
 import cn.hyh.mapper.UserMapper;
-import cn.hyh.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 /**
  * @Author : hyh
@@ -17,7 +17,11 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public User getUserById(int id) {
-        return userMapper.getUserById(id);
+    public ModelMap getUserById(int id) {
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("ret", 0);
+        modelMap.addAttribute("msg", "OK");
+        modelMap.addAttribute("data", userMapper.getUserById(id));
+        return modelMap;
     }
 }

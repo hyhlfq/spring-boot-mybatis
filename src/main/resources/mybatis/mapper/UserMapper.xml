@@ -4,7 +4,7 @@
 <mapper namespace="cn.hyh.mapper.UserMapper">
 
     <select id="getUserById" resultType="User">
-        SELECT name, age
+        SELECT *
         FROM user
         WHERE id = #{id}
     </select>
