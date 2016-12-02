@@ -14,4 +14,16 @@
         FROM user
     </select>
 
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO user
+        (name, age)
+        VALUES (#{name}, #{age})
+    </insert>
+
+    <insert id="updateUserById" parameterType="User">
+        UPDATE user
+        SET name = #{name}, age = #{age}
+        WHERE id = #{id}
+    </insert>
+
 </mapper>

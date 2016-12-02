@@ -1,5 +1,6 @@
 package cn.hyh.controller.v1.user;
 
+import cn.hyh.model.User;
 import cn.hyh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -34,5 +35,17 @@ public class UserController {
     public ModelMap getUserById(@PathVariable int id) {
         logger.info("getUserById id = " + id);
         return userService.getUserById(id);
+    }
+
+    @RequestMapping(value="", method=RequestMethod.POST)
+    public ModelMap postUser(@RequestBody User user) {
+        logger.info("postUser user = " + user.toString());
+        return userService.postUser(user);
+    }
+
+    @RequestMapping(value="", method=RequestMethod.PUT)
+    public ModelMap putUser(@RequestBody User user) {
+        logger.info("putUser user = " + user.toString());
+        return userService.putUser(user);
     }
 }

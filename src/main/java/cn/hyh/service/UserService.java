@@ -1,6 +1,7 @@
 package cn.hyh.service;
 
 import cn.hyh.mapper.UserMapper;
+import cn.hyh.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -30,6 +31,22 @@ public class UserService {
         modelMap.addAttribute("ret", 0);
         modelMap.addAttribute("msg", "OK");
         modelMap.addAttribute("data", userMapper.selectUserById(id));
+        return modelMap;
+    }
+
+    public ModelMap postUser(User user) {
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("ret", 0);
+        modelMap.addAttribute("msg", "OK");
+        userMapper.insertUser(user);
+        return modelMap;
+    }
+
+    public ModelMap putUser(User user) {
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("ret", 0);
+        modelMap.addAttribute("msg", "OK");
+        userMapper.updateUserById(user);
         return modelMap;
     }
 }
