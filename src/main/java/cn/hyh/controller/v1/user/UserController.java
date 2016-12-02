@@ -1,8 +1,8 @@
 package cn.hyh.controller.v1.user;
 
-import cn.hyh.model.User;
 import cn.hyh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -25,8 +25,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public User getUserById(@PathVariable int id) {
+    public ModelMap getUserById(@PathVariable int id) {
         logger.info("getUserById id = " + id);
-        return userService.getUserById(id);
+        ModelMap modelMap = new ModelMap();
+        modelMap.addAttribute("ret", 0);
+        modelMap.addAttribute("msg", "OK");
+        modelMap.addAttribute("data", userService.getUserById(id));
+        return modelMap;
     }
 }
