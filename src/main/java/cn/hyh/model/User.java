@@ -1,16 +1,21 @@
 package cn.hyh.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 /**
  * @Author : hyh
  * @Email : hyhlfq@163.com
  * @Date : 2016/8/4 0004
  */
 
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class User {
 
     private Integer id;
     private String name;
     private Integer age;
+
+    public User() {}
 
     public User(Integer id, String name, Integer age) {
         this.id = id;
