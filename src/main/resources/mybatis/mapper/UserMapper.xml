@@ -16,8 +16,8 @@
 
     <insert id="insertUser" parameterType="User">
         INSERT INTO user
-        (name, age)
-        VALUES (#{name}, #{age})
+        (id, name, age)
+        VALUES (#{id}, #{name}, #{age})
     </insert>
 
     <insert id="updateUserById" parameterType="User">
