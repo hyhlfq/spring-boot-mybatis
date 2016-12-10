@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date : 2016/8/2 0002
  */
 
-
 @SpringBootApplication
 @MapperScan("cn.hyh.mapper")
 public class Application {

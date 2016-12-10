@@ -1,13 +1,12 @@
 package cn.hyh.mapper;
 
 import cn.hyh.model.User;
-
 import java.util.List;
 
 /**
  * @Author : hyh
  * @Email : hyhlfq@163.com
- * @Date : 2016/9/23 0023
+ * @Date : 2016/8/4 0004
  */
 
 public interface UserMapper {
