@@ -85,25 +85,25 @@ public class ApplicationTests {
     @Test
     public void userControllerTest() throws Exception {
 
-        //获取全部用户
+        //获取用户列表
         httpTest(HttpMethod.GET, userControllerBaseUrl, "",
                 "{\"ret\":0,\"msg\":\"OK\",\"data\":[]}");
 
-        //上传用户
+        //创建用户
         httpTest(HttpMethod.POST, userControllerBaseUrl,
                 "{\"id\":1,\"name\":\"黄知闲\",\"age\":2}",
                 "{\"ret\":0,\"msg\":\"OK\"}");
 
-        //获取ID为1的用户
+        //获取ID为1的用户信息
         httpTest(HttpMethod.GET, userControllerBaseUrl + "/1", "",
                 "{\"ret\":0,\"msg\":\"OK\",\"data\":{\"id\":1,\"name\":\"黄知闲\",\"age\":2}}");
 
-        //修改ID为1的用户
-        httpTest(HttpMethod.PUT, userControllerBaseUrl,
-                "{\"id\":1,\"name\":\"黄知闲\",\"age\":3}",
+        //更新ID为1的用户信息
+        httpTest(HttpMethod.PUT, userControllerBaseUrl + "/1",
+                "{\"id\":0,\"name\":\"黄知闲\",\"age\":3}",
                 "{\"ret\":0,\"msg\":\"OK\"}");
 
-        //获取全部用户
+        //获取用户列表
         httpTest(HttpMethod.GET, userControllerBaseUrl, "",
                 "{\"ret\":0,\"msg\":\"OK\",\"data\":[{\"id\":1,\"name\":\"黄知闲\",\"age\":3}]}");
 
@@ -111,7 +111,7 @@ public class ApplicationTests {
         httpTest(HttpMethod.DELETE, userControllerBaseUrl + "/1", "",
                 "{\"ret\":0,\"msg\":\"OK\"}");
 
-        //获取全部用户
+        //获取用户列表
         httpTest(HttpMethod.GET, userControllerBaseUrl, "",
                 "{\"ret\":0,\"msg\":\"OK\",\"data\":[]}");
     }
